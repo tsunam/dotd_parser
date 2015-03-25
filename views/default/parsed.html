@@ -326,6 +326,7 @@ var chart = c3.generate({
             <table id="procsTable" class="display table table-bordered">
             <thead>
                 <tr>
+		    <th>Slot</th>
                     <th>Proc&#39;er</th>
                     <th>Count</th>
                     <th>Proc/Hit Rate</th>
@@ -340,6 +341,7 @@ var chart = c3.generate({
             <tbody>
                 {{for item,value in proc_items.iteritems():}}
                 <tr>
+		    <td>{{=proc_items[item]['slot']}}</td>
                     <td><a href="{{=gen_wiki_url(item, log_suns_mode)}}" target="_blank" data-toggle="tooltip" title="{{=proc_items[item]['proc_name']}}">{{=item}}</a></td>
                     <td>{{=commify(proc_items[item]['count'])}}</td>
                     <td>{{=percentage(proc_items[item]['count'], total_hits)}} %</td>
@@ -610,6 +612,7 @@ var chart = c3.generate({
 {{if len(proc_items):}}
 [TABLE="class: grid, width: 800"]
     [TR]
+	[TD]Slot[/TD]
         [TD]Proc&#39;er[/TD]
         [TD]Proc Count[/TD]
         [TD]Proc/Hit Rate[/TD]
@@ -621,6 +624,7 @@ var chart = c3.generate({
     [/TR]
     {{for item,value in proc_items.iteritems():}}
     [TR]
+	[TD]{{=proc_items[item]['slot']}}
         [TD]{{=item}}[/TD]
         [TD]{{=commify(proc_items[item]['count'])}}[/TD]
         [TD]{{=percentage(proc_items[item]['count'], total_hits)}}%[/TD]
@@ -641,5 +645,4 @@ var chart = c3.generate({
   </div>
 
 </div>
-
 {{pass}}

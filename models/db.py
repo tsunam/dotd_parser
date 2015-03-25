@@ -24,7 +24,7 @@ connection = 'mysql://' + config['dbuser'] + ':' + config['dbpass'] + '@' + conf
 db = DAL(connection, pool_size=5)
 
 # while lazy_tables is good for production, it's a PITA for development
-# lazy_tables=True
+#lazy_tables=True
 
 #if not request.env.web2py_runtime_gae:
 #    ## if NOT running on Google App Engine use SQLite or other DB
@@ -207,6 +207,7 @@ db.define_table('dawn_generals',
                 Field('lore', 'text'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 db.define_table('suns_generals',
@@ -224,6 +225,7 @@ db.define_table('suns_generals',
                 Field('lore', 'text'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 #
@@ -246,6 +248,7 @@ db.define_table('dawn_legions',
                 Field('specification', 'string'),
                 Field('general_format', 'json'),
                 Field('troop_format', 'json'),
+                Field('equipType', 'integer'),
 )
 
 db.define_table('suns_legions',
@@ -266,6 +269,7 @@ db.define_table('suns_legions',
                 Field('specification', 'string'),
                 Field('general_format', 'json'),
                 Field('troop_format', 'json'),
+                Field('equipType', 'integer'),
 )
 
 #
@@ -292,6 +296,7 @@ db.define_table('dawn_mounts',
                 Field('lore', 'text'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 db.define_table('suns_mounts',
@@ -316,6 +321,7 @@ db.define_table('suns_mounts',
                 Field('lore', 'text'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 #
@@ -336,6 +342,7 @@ db.define_table('dawn_troops',
                 Field('lore', 'text'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 db.define_table('suns_troops',
@@ -354,6 +361,7 @@ db.define_table('suns_troops',
                 Field('lore', 'text'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 # Unique to suns
@@ -369,6 +377,7 @@ db.define_table('suns_engineering',
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
                 Field('bonus', 'json'),
+                Field('equipType', 'integer'),
 )
 
 ## after defining tables, uncomment below to enable auditing

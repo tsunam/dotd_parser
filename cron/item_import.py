@@ -103,17 +103,18 @@ def ugup_request(path, table):
                 source = int(item['source'])
                 buffType = int(item['buffType'])
                 lore = re.escape(item['lore'].strip())
+		equipType = 1000
 
                 sql = "INSERT INTO %s ( id, name, attack, defense, race, role, rarity, value_gold, value_credits, \
-                       questReq, source, buffType, lore, proc_name, proc_desc ) \
+                       questReq, source, buffType, lore, proc_name, proc_desc, equipType ) \
                        VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', \
-                       '%s' ) \
+                       '%s', '%s' ) \
                        ON DUPLICATE KEY UPDATE name='%s', attack='%s', defense='%s', race='%s', role='%s', \
                        rarity='%s', value_gold='%s', value_credits='%s', questReq='%s', source='%s', buffType='%s', \
-                       lore='%s', proc_name='%s', proc_desc='%s';" \
+                       lore='%s', proc_name='%s', proc_desc='%s', equipType='%s';" \
                        % ( table, id, name, attack, defense, race, role, rarity, value_gold, value_credits, questReq,
-                           source, buffType, lore, proc_name, proc_desc, name, attack, defense, race, role,
-                           rarity, value_gold, value_credits, questReq, source, buffType, lore, proc_name, proc_desc )
+                           source, buffType, lore, proc_name, proc_desc, equipType, name, attack, defense, race, role,
+                           rarity, value_gold, value_credits, questReq, source, buffType, lore, proc_name, proc_desc, equipType )
 
                 cursor.execute(sql)
 
@@ -133,21 +134,22 @@ def ugup_request(path, table):
                 specification = re.escape(item['specification'].strip())
                 general_format = re.escape(json.dumps(item['general_format']))
                 troop_format = re.escape(json.dumps(item['troop_format']))
+		equipType = 1001
 
                 sql = "INSERT into %s ( id, name, num_gen, num_trp, bonus, bonusSpecial, bonusText, rarity, value_gold, \
                        value_credits, canPurchase, questReq, lore, proc_name, proc_desc, specification, \
-                       general_format, troop_format ) \
+                       general_format, troop_format, equipType ) \
                        VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', \
-                       '%s', '%s', '%s', '%s' ) \
+                       '%s', '%s', '%s', '%s', '%s' ) \
                        ON DUPLICATE KEY UPDATE name='%s', num_gen='%s', num_trp='%s', bonus='%s', bonusSpecial='%s', \
                        bonusText='%s', rarity='%s', value_gold='%s', value_credits='%s', canPurchase='%s', \
                        questReq='%s', lore='%s', proc_name='%s', proc_desc='%s', specification='%s', \
-                       general_format='%s', troop_format='%s';" \
+                       general_format='%s', troop_format='%s', equipType='%s';" \
                        % ( table, id, name, num_gen, num_trp, bonus, bonusSpecial, bonusText, rarity, value_gold,
                           value_credits, canPurchase, questReq, lore, proc_name, proc_desc, specification,
-                          general_format, troop_format, name, num_gen, num_trp, bonus, bonusSpecial, bonusText,
+                          general_format, troop_format, equipType, name, num_gen, num_trp, bonus, bonusSpecial, bonusText,
                           rarity, value_gold, value_credits, canPurchase, questReq, lore, proc_name, proc_desc,
-                          specification, general_format, troop_format)
+                          specification, general_format, troop_format, equipType)
 
                 cursor.execute(sql)
 
@@ -170,20 +172,21 @@ def ugup_request(path, table):
                 dmg = int(item['dmg'])
                 deflect = int(item['deflect'])
                 lore = re.escape(item['lore'].strip())
+		equipType = 1002
 
                 sql = "INSERT INTO %s ( id, name, attack, defense, perception, rarity, value_gold, value_credits, \
                        questReq, isUnique, hlt, eng, sta, hnr, atk, defn, power, dmg, deflect, lore, proc_name, \
-                       proc_desc ) \
+                       proc_desc, equipType ) \
                        VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', \
-                       '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ) \
+                       '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ) \
                        ON DUPLICATE KEY UPDATE name='%s', attack='%s', defense='%s', perception='%s', rarity='%s', \
                        value_gold='%s', value_credits='%s', questReq='%s', isUnique='%s', hlt='%s', eng='%s', \
                        sta='%s', hnr='%s', atk='%s', defn='%s', power='%s', dmg='%s', deflect='%s', lore='%s', \
-                       proc_name='%s', proc_desc='%s';" \
+                       proc_name='%s', proc_desc='%s', equipType='%s';" \
                        % ( table, id, name, attack, defense, perception, rarity, value_gold, value_credits, questReq,
-                           isUnique, hlt, eng, sta, hnr, atk, defn, power, dmg, deflect, lore, proc_name, proc_desc,
+                           isUnique, hlt, eng, sta, hnr, atk, defn, power, dmg, deflect, lore, proc_name, proc_desc, equipType,
                            name, attack, defense, perception, rarity, value_gold, value_credits, questReq, isUnique,
-                           hlt, eng, sta, hnr, atk, defn, power, dmg, deflect, lore, proc_name, proc_desc )
+                           hlt, eng, sta, hnr, atk, defn, power, dmg, deflect, lore, proc_name, proc_desc, equipType )
 
                 cursor.execute(sql)
 
@@ -200,18 +203,19 @@ def ugup_request(path, table):
                 source = int(item['source'])
                 buffType = int(item['buffType'])
                 lore = re.escape(item['lore'].strip())
+		equipType= 1003
 
                 sql = "INSERT INTO %s ( id, name, attack, defense, race, role, rarity, value_gold, value_credits, \
-                       canPurchase, questReq, source, buffType, lore, proc_name, proc_desc ) \
+                       canPurchase, questReq, source, buffType, lore, proc_name, proc_desc, equipType ) \
                        VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', \
-                       '%s', '%s' ) \
+                       '%s', '%s', '%s' ) \
                        ON DUPLICATE KEY UPDATE name='%s', attack='%s', defense='%s', race='%s', role='%s', \
                        rarity='%s', value_gold='%s', value_credits='%s', canPurchase='%s', questReq='%s', source='%s', \
-                       buffType='%s', lore='%s', proc_name='%s', proc_desc='%s';" \
+                       buffType='%s', lore='%s', proc_name='%s', proc_desc='%s', equipType='%s';" \
                        % ( table, id, name, attack, defense, race, role, rarity, value_gold, value_credits,
-                           canPurchase, questReq, source, buffType, lore, proc_name, proc_desc, name, attack,
+                           canPurchase, questReq, source, buffType, lore, proc_name, proc_desc, equipType,  name, attack,
                            defense, race, role, rarity, value_gold, value_credits, canPurchase, questReq, source,
-                           buffType, lore, proc_name, proc_desc )
+                           buffType, lore, proc_name, proc_desc, equipType )
 
                 cursor.execute(sql)
 
@@ -223,15 +227,16 @@ def ugup_request(path, table):
                 isUnique = int(item['unique'])
                 lore = re.escape(item['lore'].strip())
                 bonus = re.escape(json.dumps(item['bonus']))
+		equipType = 1004
 
                 sql = "INSERT INTO %s ( id, name, attack, defense, engineering, value_credits, isUnique, lore, \
-                       proc_name, proc_desc, bonus ) \
-                       VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ) \
+                       proc_name, proc_desc, bonus, equipType ) \
+                       VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ) \
                        ON DUPLICATE KEY UPDATE name='%s', attack='%s', defense='%s', engineering='%s', \
-                       value_credits='%s', isUnique='%s', lore='%s', proc_name='%s', proc_desc='%s', bonus='%s';" \
+                       value_credits='%s', isUnique='%s', lore='%s', proc_name='%s', proc_desc='%s', bonus='%s', equipType='%s';" \
                        % ( table, id, name, attack, defense, engineering, value_credits, isUnique, lore,
-                       proc_name, proc_desc, bonus, name, attack, defense, engineering, value_credits, isUnique, lore,
-                       proc_name, proc_desc, bonus )
+                       proc_name, proc_desc, bonus, equipType, name, attack, defense, engineering, value_credits, isUnique, lore,
+                       proc_name, proc_desc, bonus, equipType )
 
                 cursor.execute(sql)
 

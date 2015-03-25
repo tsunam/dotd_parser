@@ -37,6 +37,7 @@ def parser(input):
     log_suns_mode = 0
 
     proc_to_names = load_proc_to_names()
+    slot_to_names = load_slot_to_names()
 
     log_file = []
     log_file = input.splitlines()
@@ -93,10 +94,18 @@ def parser(input):
             else:
                 if len(amount):
                     if isnum(amount.split()[0]):
+			slot = ""
                         seen_proc_name = object
                         for proc_name in proc_to_names:
                             if object in proc_name:
-                                object = str(proc_name[object])
+				if isinstance(proc_name[object], list):
+					i = iter(proc_name[object])
+					object = i.next()
+					location = str(i.next())
+					if location in slot_to_names:
+						slot = slot_to_names[location] 
+				else:
+					object = str(proc_name[object])
 
                         amount = int(amount.split()[0].replace(',', ''))
 
@@ -104,7 +113,8 @@ def parser(input):
                             proc_items[object] = {'count': 1,
                                                   'damage': amount,
                                                   'damage_seen': [ amount ],
-                                                  'proc_name': seen_proc_name }
+                                                  'proc_name': seen_proc_name,
+						  'slot': slot }
                             # 'hits_seen': [ current_hit ]}
                         else:
                             proc_items[object]['count'] += 1
