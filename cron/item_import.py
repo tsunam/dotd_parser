@@ -44,10 +44,11 @@ def ugup_request(path, table):
             proc_desc = re.escape(item['proc_desc'].strip())
 
             if table in ['dawn_enchantments', 'suns_enchantments']:
-                sql = "INSERT INTO %s ( id, name, proc_name, proc_desc ) \
-                    VALUES ( '%s', '%s', '%s', '%s') \
-                    ON DUPLICATE KEY UPDATE name='%s',proc_name='%s',proc_desc='%s';" \
-                    % (table, id, name, proc_name, proc_desc, name, proc_name, proc_desc)
+		equipType = 1005
+                sql = "INSERT INTO %s ( id, name, proc_name, proc_desc, equipType ) \
+                    VALUES ( '%s', '%s', '%s', '%s', '%s') \
+                    ON DUPLICATE KEY UPDATE name='%s',proc_name='%s',proc_desc='%s', equipType='%s';" \
+                    % (table, id, name, proc_name, proc_desc, equipType, name, proc_name, proc_desc, equipType)
 
                 cursor.execute(sql)
 

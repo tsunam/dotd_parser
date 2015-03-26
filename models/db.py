@@ -124,6 +124,7 @@ db.define_table('dawn_enchantments',
                 Field('name', 'string'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 #
@@ -132,6 +133,7 @@ db.define_table('suns_enchantments',
                 Field('name', 'string'),
                 Field('proc_name', 'string'),
                 Field('proc_desc', 'text'),
+                Field('equipType', 'integer'),
 )
 
 #
