@@ -624,7 +624,7 @@ var chart = c3.generate({
     [/TR]
     {{for item,value in proc_items.iteritems():}}
     [TR]
-	[TD]{{=proc_items[item]['slot']}}
+	[TD]{{=proc_items[item]['slot']}}[/TD]
         [TD]{{=item}}[/TD]
         [TD]{{=commify(proc_items[item]['count'])}}[/TD]
         [TD]{{=percentage(proc_items[item]['count'], total_hits)}}%[/TD]

@@ -298,50 +298,51 @@ def parser(input):
         # Info from second attack proc?
         # RikaStormwin dealt 11,590,546 damage!
         # KwanSai dealt 123,063,260 damage!
-        elif "dealt" in line and "health" not in line:
-            object = line.split()
+        #disable as it causes issues for inaccurate counts...Will review Greendragon code later for why we would want a line like this at all
+	#elif "dealt" in line and "health" not in line:
+        #    object = line.split()
 
-            if len(object) == 4 and object[3] == 'damage!':
-                username = object[0].strip()
+        #    if len(object) == 4 and object[3] == 'damage!':
+        #        username = object[0].strip()
                 # this logic won't work until a second experience round comes along.
                 # need a better algorithm here
                 # oh well, 80-20 rules...
-                if username == experience['user']:
-                    if isnum(object[2]):
-                        damage = int(object[2].replace(',', ''))
+        #        if username == experience['user']:
+        #            if isnum(object[2]):
+        #                damage = int(object[2].replace(',', ''))
 
-                        experience['regular_hits'] += 1
-                        experience['total_reg_dmg'] += damage
-                    else:
-                        syslog.syslog(line)
+        #                experience['regular_hits'] += 1
+        #                experience['total_reg_dmg'] += damage
+        #            else:
+        #                syslog.syslog(line)
                 #else:
                 #    syslog.syslog(line)
-            else:
-                syslog.syslog(line)
+        #    else:
+        #        syslog.syslog(line)
 
         # Info from second attack proc? or another user
         # Ouryu crit 16,906,936 damage!
         # MengaoLIGABR crit 68,156,584 damage!
-        elif "crit" in line and "health" not in line:
-            object = line.split()
+        #elif "crit" in line and "health" not in line:
+        #    object = line.split()
 
-            if len(object) == 4 and object[3] == 'damage!':
-                username = object[0].strip()
+        #    if len(object) == 4 and object[3] == 'damage!':
+        #        username = object[0].strip()
                 # this logic won't work until a second experience round comes along.
                 # need a better algorithm here
                 # oh well, 80-20 rules...
-                if username == experience['user']:
-                    if isnum(object[2]):
-                        damage = int(object[2].replace(',', ''))
+        #        if username == experience['user']:
+        #            if isnum(object[2]):
+        #                damage = int(object[2].replace(',', ''))
 
-                        experience['critical_hits'] += 1
-                        experience['total_crit_dmg'] += damage
-                    else:
-                        syslog.syslog(line)
-                else:
-                    syslog.syslog(line)
-            else:
-                syslog.syslog(line)
+        #                experience['critical_hits'] += 1
+        #                experience['total_crit_dmg'] += damage
+        #            else:
+        #                syslog.syslog(line)
+        #        else:
+        #            syslog.syslog(line)
+        #    else:
+        #        syslog.syslog(line)
 
         # If we made it this far, it's either an unknown log line, or garbage
         else:
