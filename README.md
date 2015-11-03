@@ -58,7 +58,7 @@ Download web2py_src.zip from http://web2py.com/init/default/download and extract
 Clone the application repository from github:
 ```
     $ cd <development_directory>/web2py/applications
-    $ git clone https://github.com/GreenDragon/dotd_parser.git
+    $ git clone https://github.com/tsunam/dotd_parser.git
 ```
 
 Create the application settings file:
